@@ -5,7 +5,7 @@
 Namedapolooza Summer 2023 Base Template used to build your project off of.
 
 - [x] Find the repository
-- [ ] Used the template as a guideline
+- [x] Used the template as a guideline
 - [ ] Fill in the 👇 details for your project - all places with \[ \] statements
 - [ ] Build your project
 - [ ] Create your presentation deck
@@ -19,7 +19,7 @@ Namedapolooza Summer 2023 Base Template used to build your project off of.
 \[ Provide a brief description of the project. \]
 
 ## Group Members
-\[ List all members of your group \]
+Morgan Smith, Andrew Southard, Jenny Hinz, and Joe Shope
 
 ## Prerequisites
 \[ List any software, tools, or libraries that users need to have installed on their local machines to run the project. \]
