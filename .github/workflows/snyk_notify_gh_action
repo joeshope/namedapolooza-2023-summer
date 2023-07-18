@@ -1,0 +1,31 @@
+name: "Snyk Notify GH Action"
+
+on:
+  push:
+    branches:
+      # Update to master branch
+      - master
+
+jobs:
+  prCheck:
+  # Confirm PR Check status
+    runs-on: ubuntu-latest
+    outputs: 
+      output1: ${{ steps.step1.outputs.test }}
+
+    steps:
+      - name: Test PR
+        id: step1
+        run: echo "test=failed" >> "$GITHUB_OUTPUT"
+
+
+
+  prReviewer:
+    # Add AppSec Reviewer if PR check failed
+    needs: prCheck
+    if: needs.prCheck.outputs.output1 == 'failed'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Assign Reviewer
+        run: echo "Hello World"

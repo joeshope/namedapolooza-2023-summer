@@ -13,10 +13,10 @@ Namedapolooza Summer 2023 Base Template used to build your project off of.
 
 ---
 
-# \[ Project Name \]
+# Snyk PR Check Failure Notification 
 
 ## Description
-\[ Provide a brief description of the project. \]
+The objective of this GitHub Action is to identify when Snyk PR Checks fail. When this occurs, the action will add a Reviewer to the PR so that the issue(s) can be triaged. This will help bridge the gap between AppSec Snyk Admins and Development Team(s).
 
 ## Group Members
 Morgan Smith, Andrew Southard, Jenny Hinz, and Joe Shope
