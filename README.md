@@ -1,18 +1,3 @@
----
-# _Remove The Section_
-
-## namedapolooza-2023-summer-template
-Namedapolooza Summer 2023 Base Template used to build your project off of.
-
-- [x] Find the repository
-- [x] Used the template as a guideline
-- [ ] Fill in the 👇 details for your project - all places with \[ \] statements
-- [ ] Build your project
-- [ ] Create your presentation deck
-- [ ] Book your presentation slot (inviting the entire team)
-
----
-
 # Snyk PR Check Failure Notification 
 
 ## Description
@@ -22,16 +7,25 @@ The objective of this GitHub Action is to identify when Snyk PR Checks fail. Whe
 Morgan Smith, Andrew Southard, Jenny Hinz, and Joe Shope
 
 ## Prerequisites
-\[ List any software, tools, or libraries that users need to have installed on their local machines to run the project. \]
+While there are no local software requirements for this project, the following GitHub actions are used:  
+[Wait For Commit Statuses Action](https://github.com/marketplace/actions/wait-for-commit-statuses)  
+[Add Reviewers Action](https://github.com/marketplace/actions/add-reviewers)
 
 ## Getting Started
-\[ Provide instructions on how to get started with the project. \]
+This project is for use with GitHub repositories and runs as a GitHub action. [GitHub Actions](https://github.com/features/actions)  
+This project is intended to be used in conjunction with Snyk PR Checks. If the repository has not yet been imported to Snyk, please do so prior to use. [Import Repository using Snyk UI](https://docs.snyk.io/integrations/git-repository-scm-integrations/github-enterprise-integration)   
+It is recommended that branch protection is used for your default branch and that `Require a pull request before merging` is checked. Optionally enabling `Require status checks to pass before merging` will further protect your default branch. [GitHub Branch Protection](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)
 
 ### Setup
-\[ Include step-by-step instructions on how to set up the project locally. This may include cloning the repository, installing dependencies, and any other required configurations. \]
+1. Create a `.github/workflows` directory in your GitHub repository. Copy the 'snyk\_notify\_gh\_action' file into this directory.  
+2. `REVIEWERS` - Add a GitHub variable with a comma delimited list of your reviewers to be notified. ex. jhinz1,morgansnyk,joeshope NOTE: These reviewers should be the individuals that usher the PR Check through to merge so Snyk Admin permissions are recommended.  
+3. `GITHUB_TOKEN` - Create a repository secret for your GitHub PAT with permissions to add a Commit to the Pull Request as well as access Pull Request commits.  
+
+(Optional) Changes to the 'snyk\_notify\_gh_action' file.   
+`checkInterval` - default 13. Amount of delay in seconds between checks - this can be lowered or raised to your needs.  
+`ignoreActions` - default 'waitforstatuschecks'. If you utilize additional checks that you would like to be ignored from this flow, add them in a comma delimited list. ex. 'waitforstatuschecks,Other Action'.  
+`re-request-when-changes-requested` - default true. When a reviewer has requested for changes, pushing a new commit to this PR will Re-request a review from them. Can be configured to false.   
+`re-request-when-approved` - default true. When a reviewer has approved, pushing a new commit to this PR will Re-request a review from them. Can be configured to false.
 
 ## Usage
-\[ Explain how to use the project, including any command-line commands, APIs, or interfaces that users need to interact with. \]
-
-## Features
-\[ List and describe the main features or functionalities of the project. Include any demos, screenshots, or code snippets to showcase these features. \]
+The usage of this GitHub action is simple, it will run during Pull Request to verify that the Snyk PR Checks are successful. If any should fail, it will assign a reviewer which will trigger a GitHub notification to the reviewer.
