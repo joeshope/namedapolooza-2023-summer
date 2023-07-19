@@ -42,6 +42,6 @@ jobs:
       uses: madrapps/add-reviewers@v1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        reviewers: jhinz1,morgansnyk,joeshope
+        reviewers: ${{ vars.REVIEWERS }}
         re-request-when-approved: true
         re-request-when-changes-requested: true
