@@ -1,5 +1,0 @@
-API to PR Check to check progress https://docs.github.com/en/rest/checks/runs?apiVersion=2022-11-28
-if Completed = Success done
-ifelse completed = failure
-    Locate PR (API call https://docs.github.com/en/rest/pulls/pulls?apiVersion=2022-11-28#get-a-pull-request)
-    create PR review (API  call https://docs.github.com/en/rest/pulls/reviews?apiVersion=2022-11-28#create-a-review-for-a-pull-request)
